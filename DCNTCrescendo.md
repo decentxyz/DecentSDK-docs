@@ -53,16 +53,114 @@ The account address authorized to withdraw take rate payouts.
 
 ## Smart Contract Methods
 
-[**exampleMethod**](#examplemethod)  
-Description of an example method
+[**buy**](#buy)  
+Mint an NFT at the current mint rate
 
-## exampleMethod
+[**sell**](#sell)  
+Sell an NFT at the current burn rate
 
-Description of an example method.
+[**totalSupply**](#sell)  
+Returns the total number of NFTs currently in circulation.
+
+[**flipSaleState**](#flipsalestate)  
+Toggles whether to allow minting.
+
+[**withdrawFund**](#withdrawfund)  
+Allows the owner to withdraw the contract balance.
+
+[**withdrawDividend**](#withdrawdividend)  
+Allows the account authorized for payouts to withdraw dividends at the specified take rate.
+
+[**liquidity**](#liquidity)  
+Returns the peak liquidity held by the contract.
+
+[**reserveAmt**](#reserveamt)  
+Returns the peak reserve funds held by the contract.
+
+[**updateUri**](#updateuri)  
+Allows the owner to update the URI serving metadata for the NFT collection.
+
+## buy  
+
+Mint an NFT at the current mint rate
 
 ```
-coolMethod('coolParameter');
+buy(0);
 ```
 
-**coolParameter** (uint256)  
-Description of an example parameter.
+**tokenId** (uint256)  
+The id of the token.
+
+## sell  
+
+Sell an NFT at the current burn rate
+
+```
+sell(0);
+```
+
+**tokenId** (uint256)  
+The id of the token. (must be zero)  
+
+
+## totalSupply  
+
+Returns the total number of NFTs currently in circulation.
+
+```
+totalSupply(0);
+```
+
+**tokenId** (uint256)  
+The id of the token. (must be zero)  
+
+## flipSaleState  
+
+Toggles whether to allow minting.
+
+```
+flipSaleState();
+```
+
+## withdrawFund  
+
+Allows the owner to withdraw the contract balance.
+
+```
+withdrawFund();
+```
+
+## withdrawDividend  
+
+Allows the account authorized for payouts to withdraw dividends at the specified take rate.
+
+```
+withdrawDividend();
+```
+
+## liquidity  
+
+Returns the peak liquidity held by the contract.
+
+```
+liquidity();
+```
+
+## reserveAmt  
+
+Returns the peak reserve funds held by the contract.
+
+```
+reserveAmt();
+```
+
+## updateUri  
+
+Allows the owner to update the URI serving metadata for the NFT collection.
+
+```
+updateUri('https://nft.example/metadata/{id}.json');
+```
+
+**uri** (uint256)  
+The URI serving metadata for the NFT collection.
