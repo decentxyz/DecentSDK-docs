@@ -2,6 +2,25 @@
 
 A time-locked vault to distribute [ERC20](https://eips.ethereum.org/EIPS/eip-20) tokens to owners of an [ERC721](https://eips.ethereum.org/EIPS/eip-721) collection at expiry based on their percentage of ownership in the collection.
 
+[**Getting Started**](#getting-started)  
+[**Module Methods**](#module-methods)  
+[**Smart Contract Methods**](#smart-contract-methods)  
+
+## Getting Started
+
+To begin we'll import the DecentSDK, chain configurations, and the Vault module.
+
+Then we'll setup our signer (via wagmi/ethers) and create a new instance of the DecentSDK.
+
+```
+// Import SDK, chain configurations, and the Vault module
+import { DecentSDK, chain, vault } from "@decent.xyz/sdk";
+
+// Get the signer via wagmi or configure using ethers
+// Setup the SDK with the desired chain and signer
+const sdk = new DecentSDK(chain.goerli, signer);
+```
+
 ## Module Methods
 
 [**deploy**](#deploy)  

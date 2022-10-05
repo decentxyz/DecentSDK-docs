@@ -2,6 +2,25 @@
 
 A shared on-chain metadata renderer adhering to the [music metadata standard](https://gist.github.com/bretth18/df8358c840fa94946ec212f753e290dd) which stores and renders metadata as base64 encoded URLs.
 
+[**Getting Started**](#getting-started)  
+[**Module Methods**](#module-methods)  
+[**Smart Contract Methods**](#smart-contract-methods)  
+
+## Getting Started
+
+To begin we'll import the DecentSDK, chain configurations, and the MetadataRenderer module.
+
+Then we'll setup our signer (via wagmi/ethers) and create a new instance of the DecentSDK.
+
+```
+// Import SDK, chain configurations, and the MetadataRenderer module
+import { DecentSDK, chain, metadataRenderer } from "@decent.xyz/sdk";
+
+// Get the signer via wagmi or configure using ethers
+// Setup the SDK with the desired chain and signer
+const sdk = new DecentSDK(chain.goerli, signer);
+```
+
 ## Module Methods
 
 [**getContract**](#getcontract)  

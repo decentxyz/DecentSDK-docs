@@ -6,6 +6,25 @@ Token owners can list their NFT tokens for rent, specify the desired fees and te
 
 In addition, RentalMarket supports [EIP2981](https://eips.ethereum.org/EIPS/eip-2981) and distributes a royalty fee on all rentals back to the creator.
 
+[**Getting Started**](#getting-started)  
+[**Module Methods**](#module-methods)  
+[**Smart Contract Methods**](#smart-contract-methods)  
+
+## Getting Started
+
+To begin we'll import the DecentSDK, chain configurations, and the RentalMarket module.
+
+Then we'll setup our signer (via wagmi/ethers) and create a new instance of the DecentSDK.
+
+```
+// Import SDK, chain configurations, and the RentalMarket module
+import { DecentSDK, chain, rentalMarket } from "@decent.xyz/sdk";
+
+// Get the signer via wagmi or configure using ethers
+// Setup the SDK with the desired chain and signer
+const sdk = new DecentSDK(chain.goerli, signer);
+```
+
 ## Module Methods
 
 [**getContract**](#getcontract)  

@@ -6,6 +6,17 @@ If you are utilizing on-chain metadata, the media file URLs can be passed direct
 
 *Note: This module is a lightweight wrapper utilzing the [nft.storage](https://nft.storage/docs/client/js/) JavaScript client library.
 
+[**Getting Started**](#getting-started)  
+[**Module Methods**](#module-methods)  
+
+## Getting Started
+
+To begin we'll import the IPFS module.
+
+```
+// Import the IPFS module
+import { ipfs } from "@decent.xyz/sdk";
+```
 ## Module Methods
 
 [**createMetadata**](#createmetadata)  

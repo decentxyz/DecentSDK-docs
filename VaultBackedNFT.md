@@ -2,6 +2,24 @@
 
 This module simplifies the process of launching a Vault-Backed NFT into a single transaction, allowing you to deploy either an [Edition](Edition.md) or [Rentable](Rentable.md) which will be automatically backed by a shared [Vault](Vault.md).
 
+[**Getting Started**](#getting-started)  
+[**Module Methods**](#module-methods)  
+
+## Getting Started
+
+To begin we'll import the DecentSDK, chain configurations, and VaultBackedNFT module.
+
+Then we'll setup our signer (via wagmi/ethers) and create a new instance of the DecentSDK.
+
+```
+// Import SDK, chain configurations, and the VaultBackedNFT module
+import { DecentSDK, chain, vaultBackedNFT } from "@decent.xyz/sdk";
+
+// Get the signer via wagmi or configure using ethers
+// Setup the SDK with the desired chain and signer
+const sdk = new DecentSDK(chain.goerli, signer);
+```
+
 ## Module Methods
 
 [**create**](#create)  

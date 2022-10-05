@@ -2,6 +2,25 @@
 
 NFT drop utilzing the gas-optimized [ERC721A](https://www.azuki.com/erc721a) which allows minting multiple NFTs for nearly the cost of one.
 
+[**Getting Started**](#getting-started)  
+[**Module Methods**](#module-methods)  
+[**Smart Contract Methods**](#smart-contract-methods)  
+
+## Getting Started
+
+To begin we'll import the DecentSDK, chain configurations, and the Edition module.
+
+Then we'll setup our signer (via wagmi/ethers) and create a new instance of the DecentSDK.
+
+```
+// Import SDK, chain configurations, and the Edition module
+import { DecentSDK, chain, edition } from "@decent.xyz/sdk";
+
+// Get the signer via wagmi or configure using ethers
+// Setup the SDK with the desired chain and signer
+const sdk = new DecentSDK(chain.goerli, signer);
+```
+
 ## Module Methods
 
 [**deploy**](#deploy)  

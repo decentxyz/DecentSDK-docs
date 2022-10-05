@@ -2,6 +2,25 @@
 
 A staking vault allowing owners of an [ERC721](https://eips.ethereum.org/EIPS/eip-721) collection to stake their NFTs and earn [ERC20](https://eips.ethereum.org/EIPS/eip-20) tokens distributed based on the length of the lock up.
 
+[**Getting Started**](#getting-started)  
+[**Module Methods**](#module-methods)  
+[**Smart Contract Methods**](#smart-contract-methods)  
+
+## Getting Started
+
+To begin we'll import the DecentSDK, chain configurations, and the Staking module.
+
+Then we'll setup our signer (via wagmi/ethers) and create a new instance of the DecentSDK.
+
+```
+// Import SDK, chain configurations, and the Staking module
+import { DecentSDK, chain, staking } from "@decent.xyz/sdk";
+
+// Get the signer via wagmi or configure using ethers
+// Setup the SDK with the desired chain and signer
+const sdk = new DecentSDK(chain.goerli, signer);
+```
+
 ## Module Methods
 
 [**deploy**](#deploy)  
