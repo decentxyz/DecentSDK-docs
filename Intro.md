@@ -24,3 +24,17 @@ A time-locked vault to distribute [ERC20](https://eips.ethereum.org/EIPS/eip-20)
 - **[Staking](Staking.md)**  
 A staking vault allowing owners of an [ERC721](https://eips.ethereum.org/EIPS/eip-721) collection to stake their NFTs and earn [ERC20](https://eips.ethereum.org/EIPS/eip-20) tokens distributed based on the length of the lock up.
 
+- **[MetadataRenderer](MetadataRenderer.md)**  
+A shared on-chain metadata renderer adhering to the [music metadata standard](https://gist.github.com/bretth18/df8358c840fa94946ec212f753e290dd) which stores and renders metadata as base64 encoded URLs.
+
+- **[IPFS](IPFS.md)**  
+Simplifies the process of uploading files and metadata to IPFS, allowing you to generate IPFS URLs for media files such as images, audio, and video, as well as metadata json files.
+
+- **[Registry](Registry.md)**  
+The Registry serves as a public on-chain record of all contracts deployed via the DecentSDK and as a point of entry for the Decent Cross-Chain Indexer.
+
+- **[VaultBackedNFT](VaultBackedNFT.md)**  
+A module to simplify the process of launching a Vault-Backed NFT into a single transaction, allowing you to deploy either an [Edition](Edition.md) or [Rentable](Rentable.md) which will be automatically backed by a shared [Vault](Vault.md).
+
+- **[RentalMarket](RentalMarket.md)**  
+A rental marketplace allowing instant daily rentals for [Rentable](Rentable.md) or any other NFT which implements the [EIP4907](https://eips.ethereum.org/EIPS/eip-4907) standard.
