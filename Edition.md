@@ -1,36 +1,83 @@
-# DCNT721A
+# Edition
 
 NFT drop utilzing the gas-optimized [ERC721A](https://www.azuki.com/erc721a) which allows minting multiple NFTs for nearly the cost of one.
 
+## Module Methods
 
-## deployDCNT721A
+[**deploy**](#deploy)  
+Deploy a minimal proxy clone of the Edition implementation contract.
 
-Deploy a minimal proxy clone of the DCNT721A implementation contract.
+[**getContract**](#getcontract)  
+Get an ethers contract instance of a previously deployed Edition contract.
+
+## deploy
+
+Deploy a minimal proxy clone of the Edition implementation contract.
 
 ```
-deployDCNT721A(
-	'My Awesome NFT',
-	'FTW',
-	100,
-	10000000000000000,
-	2
-)
+const myNFT = await edition.deploy(
+  sdk,
+  name,
+  symbol,
+  maxTokens,
+  tokenPrice,
+  maxTokenPurchase,
+  royaltyBPS,
+  metadataURI,
+  metadataRendererInit,
+  onTxPending,
+  onTxReceipt
+);
+
+console.log("Edition deployed to: ", myNFT.address);
 ```
 
-**_name** (string)  
+**sdk** (*SDK*)  
+An instance of the DecentSDK, configured with a chain and signer.
+
+**name** (*string*)  
 The name of the NFT collection.
 
-**_symbol** (string)  
+**symbol** (*string*)  
 The symbol of the NFT collection.
 
-**_maxTokens** (uint256)  
+**maxTokens** (*number*)  
 The total number of tokens allowed to be minted from the collection.
 
-**_tokenPrice** (uint256)  
+**tokenPrice** (*BigNumber*)  
 The price (in Wei) to mint a token from the collection.
 
-**_maxTokenPurchase** (uint256)  
+**maxTokenPurchase** (*number*)  
 The maximum number of tokens allowed per mint.
+
+**royaltyBPS** (*number*)  
+The maximum number of tokens allowed per mint.
+
+**metadataURI** (*string*)  
+The base URI for the collection metadata.
+
+**metadataRendererInit** (*MetadataRendererInit*)  
+An object containing metadata to initialize with the on-chain metadata renderer.
+
+**onTxPending** (*Function*) - *optional*  
+A callback function executed upon submission of the deploy transaction.
+
+**onTxReceipt** (*Function*) - *optional*  
+A callback function executed upon receipt of the deploy transaction.
+
+## getContract
+
+Get an ethers contract instance of a previously deployed Edition contract.
+
+```
+const myNFT = await edition.getContract(sdk, address);
+```
+
+**sdk** (*SDK*)  
+An instance of the DecentSDK, configured with a chain and signer.
+
+**address** (*string*)  
+The contract address of a previously deployed Edition contract.
 
 ## Smart Contract Methods
 
@@ -44,17 +91,18 @@ Toggles whether to allow minting.
 Allows the owner to withdraw the contract balance.
 
 [**setBaseURI**](#setbaseuri)  
-Allows the owner to update the base URI for token metadata.
+Allows the owner to update the base URI for token metadata. 
 
 ## mint
 
 Mints the specified number of tokens to msg.sender
 
 ```
-mint(1);
+const myNFT = await edition.getContract(sdk, address);
+await myNFT.mint(1, { value: ethers.utils.parseEther('0.1') });
 ```
 
-**numberOfTokens** (uint256)  
+**numberOfTokens** (*uint256*)  
 The name of the NFT collection.
 
 
@@ -63,7 +111,8 @@ The name of the NFT collection.
 Toggles whether to allow minting.
 
 ```
-flipSaleState();
+const myNFT = await edition.getContract(sdk, address);
+await myNFT.flipSaleState();
 ```
 
 
@@ -72,17 +121,18 @@ flipSaleState();
 Allows the owner to withdraw the contract balance.
 
 ```
-withdraw();
+const myNFT = await edition.getContract(sdk, address);
+await myNFT.withdraw();
 ```
-
 
 ## setBaseURI
 
 Allows the owner to update the base URI for token metadata.
 
 ```
-setBaseURI('https://nft.example/metadata/');
+const myNFT = await edition.getContract(sdk, address);
+await myNFT.setBaseURI('https://nft.example/metadata/');
 ```
 
-**uri** (uint256)  
+**uri** (*uint256*)  
 The base URI serving metadata for the NFT collection.

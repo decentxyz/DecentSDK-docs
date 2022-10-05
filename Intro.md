@@ -13,7 +13,7 @@ This contract serves as a permanent, immutable, and permissionless foundation up
 NFT drop utilzing the gas-optimized [ERC721A](https://www.azuki.com/erc721a) which allows minting multiple NFTs for nearly the cost of one.
 
 - **[Rentable](Rentable.md)**  
-An extension to DCNT721A implementing [ERC4907A](https://chiru-labs.github.io/ERC721A/#/erc4907a) / [EIP4907](https://eips.ethereum.org/EIPS/eip-4907) allowing owner's to grant time restricted user rights to another account.
+An extension to Edition implementing [ERC4907A](https://chiru-labs.github.io/ERC721A/#/erc4907a) / [EIP4907](https://eips.ethereum.org/EIPS/eip-4907) allowing token owner's to grant time restricted user rights to another account.
 
 - **[Crescendo](Crescendo.md)**  
 NFT drop utilizing a gas-optimzed version of [ERC1155](https://github.com/transmissions11/solmate) with bonding curves for dynamic pricing to enable fan powered price discovery.

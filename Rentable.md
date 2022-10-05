@@ -1,38 +1,83 @@
-# DCNT4907A
+# Rentable
 
-An extension to [DCNT721A](DCNT721A.md) implementing [ERC4907A](https://chiru-labs.github.io/ERC721A/#/erc4907a) / [EIP4907](https://eips.ethereum.org/EIPS/eip-4907) allowing owner's to grant time restricted user rights to another account.
+An extension to [Edition](Edition.md) implementing [ERC4907A](https://chiru-labs.github.io/ERC721A/#/erc4907a) / [EIP4907](https://eips.ethereum.org/EIPS/eip-4907) allowing token owner's to grant time restricted user rights to another account.
 
+## Module Methods
 
-## deployDCNT4907A
+[**deploy**](#deploy)  
+Deploy a minimal proxy clone of the Rentable implementation contract.
 
-Deploy a minimal proxy clone of the DCNT4907A implementation contract.
+[**getContract**](#getcontract)  
+Get an ethers contract instance of a previously deployed Rentable contract.
+
+## deploy
+
+Deploy a minimal proxy clone of the Rentable implementation contract.
 
 ```
-deployDCNT4907A(
-	'My Awesome NFT',
-	'FTW',
-	100,
-	ethers.utils.parseEther('0.1'),
-	2
-)
+const myNFT = await rentable.deploy(
+  sdk,
+  name,
+  symbol,
+  maxTokens,
+  tokenPrice,
+  maxTokenPurchase,
+  royaltyBPS,
+  metadataURI,
+  metadataRendererInit,
+  onTxPending,
+  onTxReceipt
+);
+
+console.log("Rentable deployed to: ", myNFT.address);
 ```
 
-**_name** (string)  
+**sdk** (*SDK*)  
+An instance of the DecentSDK, configured with a chain and signer.
+
+**name** (*string*)  
 The name of the NFT collection.
 
-**_symbol** (string)  
+**symbol** (*string*)  
 The symbol of the NFT collection.
 
-**_maxTokens** (uint256)  
+**maxTokens** (*number*)  
 The total number of tokens allowed to be minted from the collection.
 
-**_tokenPrice** (uint256)  
+**tokenPrice** (*BigNumber*)  
 The price (in Wei) to mint a token from the collection.
 
-**_maxTokenPurchase** (uint256)  
+**maxTokenPurchase** (*number*)  
 The maximum number of tokens allowed per mint.
 
+**royaltyBPS** (*number*)  
+The maximum number of tokens allowed per mint.
 
+**metadataURI** (*string*)  
+The base URI for the collection metadata.
+
+**metadataRendererInit** (*MetadataRendererInit*)  
+An object containing metadata to initialize with the on-chain metadata renderer.
+
+**onTxPending** (*Function*) - *optional*  
+A callback function executed upon submission of the deploy transaction.
+
+**onTxReceipt** (*Function*) - *optional*  
+A callback function executed upon receipt of the deploy transaction.
+
+## getContract
+
+Get an ethers contract instance of a previously deployed Rentable contract.
+
+```
+const myNFT = await rentable.getContract(sdk, address);
+```
+
+**sdk** (*SDK*)  
+An instance of the DecentSDK, configured with a chain and signer.
+
+**address** (*string*)  
+The contract address of a previously deployed Rentable contract.
 
 ## Smart Contract Methods
 
@@ -45,26 +90,24 @@ Get the current user for a token
 [**userExpires**](#userexpires)  
 Get the timestamp of expiration for a token
 
+*All methods available on [Edition](Edition.md) are inherited and available on Rentable.
 
 ## setUser
 
 Set a user and expiration for a token
 
 ```
-setUser(
-	1,
-	'0x1234567890123456789012345678901234567890',
-	1735689600
-);
+const myNFT = await rentable.getContract(sdk, address);
+await myNFT.setUser(tokenId, user, expires);
 ```
 
-**tokenId** (uint256)  
+**tokenId** (*uint256*)  
 The id of the token.
 
-**user** (uint256)  
+**user** (*uint256*)  
 The new user of the NFT.
 
-**expires** (uint256)  
+**expires** (*uint256*)  
 The timestamp at which the user expires.
 
 
@@ -73,10 +116,11 @@ The timestamp at which the user expires.
 Get the current user for a token.
 
 ```
-userOf(1);
+const myNFT = await rentable.getContract(sdk, address);
+await myNFT.userOf(tokenId);
 ```
 
-**tokenId** (uint256)  
+**tokenId** (*uint256*)  
 The id of the token.
 
 
@@ -85,8 +129,9 @@ The id of the token.
 Get the timestamp of expiration for a token.
 
 ```
-userExpires(1);
+const myNFT = await rentable.getContract(sdk, address);
+await myNFT.userExpires(tokenId);
 ```
 
-**tokenId** (uint256)  
+**tokenId** (*uint256*)  
 The id of the token.

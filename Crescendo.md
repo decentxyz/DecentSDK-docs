@@ -1,55 +1,95 @@
-# DCNTCrescendo
+# Crescendo
 
 NFT drop utilizing a gas-optimzed version of [ERC1155](https://github.com/transmissions11/solmate) with bonding curves for dynamic pricing to enable fan powered price discovery.
 
-## deployDCNTCrescendo
+## Module Methods
 
-Deploy a minimal proxy clone of the DCNT4907A implementation contract.
+[**deploy**](#deploy)  
+Deploy a minimal proxy clone of the Crescendo implementation contract.
+
+[**getContract**](#getcontract)  
+Get an ethers contract instance of a previously deployed Crescendo contract.
+
+## deploy
+
+Deploy a minimal proxy clone of the Crescendo implementation contract.
 
 ```
-deployDCNTCrescendo(
-	'My Awesome NFT',
-	'FTW',
-	'https://nft.example/{id}.json',
-	ethers.utils.parseEther('0.05'),
-	ethers.utils.parseEther('0.005'),
-	ethers.utils.parseEther('0.05'),
-	20,
-	1500,
-	10000,
-	'0x1234567890123456789012345678901234567890'
-)
+const myNFT = await crescendo.deploy(
+  sdk,
+  name,
+  symbol,
+  initialPrice,
+  step1,
+  step2,
+  hitch,
+  takeRateBPS,
+  unlockDate,
+  royaltyBPS,
+  metadataURI,
+  metadataRendererInit,
+  onTxPending,
+  onTxReceipt
+);
+
+console.log("Crescendo deployed to: ", myNFT.address);
 ```
 
-**_name** (string)  
+**sdk** (*SDK*)  
+An instance of the DecentSDK, configured with a chain and signer.
+
+**name** (*string*)  
 The name of the NFT collection.
 
-**_symbol** (string)  
+**symbol** (*string*)  
 The symbol of the NFT collection.
 
-**_uri** (string)  
-The base uri for the NFT collection metadata.
-
-**_initialPrice** (uint256)  
+**initialPrice** (*BigNumber*)  
 The initial price (in Wei) to mint a token from the collection.
 
-**_step1** (uint256)  
+**step1** (*BigNumber*)  
 The amount to increment/decrement the per token price pre-hitch.
 
-**_step2** (uint256)  
+**step2** (*BigNumber*)  
 The amount to increment/decrement the per token price post-hitch.
 
-**_hitch** (uint256)  
-Once total supply exceeds the hitch the amount by which we increment/decrement pricing increases.
+**hitch** (*number*)  
+Once total supply exceeds the hitch, the amount by which we increment/decrement pricing increases.
 
-**_trNum** (uint256)  
-The take rate numerator used for calculating take rate basis points.
+**takeRateBPS** (*number*)  
+The take rate in basis points used to calculate reserve funds for trading liquidity.
 
-**_trDenom** (uint256)  
-The take rate denominator used for calculating take rate basis points.
+**unlockDate** (*number*)  
+The timestamp at which crescendo will unlock and allow profit distributions.
 
-**_payouts** (uint256)  
-The account address authorized to withdraw take rate payouts.
+**royaltyBPS** (*number*)  
+The maximum number of tokens allowed per mint.
+
+**metadataURI** (*string*)  
+The base URI for the collection metadata.
+
+**metadataRendererInit** (*MetadataRendererInit*)  
+An object containing metadata to initialize with the on-chain metadata renderer.
+
+**onTxPending** (*Function*) - *optional*  
+A callback function executed upon submission of the deploy transaction.
+
+**onTxReceipt** (*Function*) - *optional*  
+A callback function executed upon receipt of the deploy transaction.
+
+## getContract
+
+Get an ethers contract instance of a previously deployed Crescendo contract.
+
+```
+const myNFT = await crescendo.getContract(sdk, address);
+```
+
+**sdk** (*SDK*)  
+An instance of the DecentSDK, configured with a chain and signer.
+
+**address** (*string*)  
+The contract address of a previously deployed Crescendo contract.
 
 ## Smart Contract Methods
 
@@ -65,10 +105,7 @@ Returns the total number of NFTs currently in circulation.
 [**flipSaleState**](#flipsalestate)  
 Toggles whether to allow minting.
 
-[**withdrawFund**](#withdrawfund)  
-Allows the owner to withdraw the contract balance.
-
-[**withdrawDividend**](#withdrawdividend)  
+[**withdraw**](#withdraw)  
 Allows the account authorized for payouts to withdraw dividends at the specified take rate.
 
 [**liquidity**](#liquidity)  
@@ -85,10 +122,12 @@ Allows the owner to update the URI serving metadata for the NFT collection.
 Mint an NFT at the current mint rate
 
 ```
-buy(0);
+const myNFT = await crescendo.getContract(sdk, address);
+const currentPrice = await crescendo.calculateCurvedMintReturn(1, 0);
+await crescendo.buy(0, { value: currentPrice });
 ```
 
-**tokenId** (uint256)  
+**tokenId** (*uint256*)  
 The id of the token.
 
 ## sell  
@@ -96,10 +135,11 @@ The id of the token.
 Sell an NFT at the current burn rate
 
 ```
-sell(0);
+const myNFT = await crescendo.getContract(sdk, address);
+await crescendo.sell(0);
 ```
 
-**tokenId** (uint256)  
+**tokenId** (*uint256*)  
 The id of the token. (must be zero)  
 
 
@@ -108,10 +148,11 @@ The id of the token. (must be zero)
 Returns the total number of NFTs currently in circulation.
 
 ```
-totalSupply(0);
+const myNFT = await crescendo.getContract(sdk, address);
+await crescendo.totalSupply(0);
 ```
 
-**tokenId** (uint256)  
+**tokenId** (*uint256*)  
 The id of the token. (must be zero)  
 
 ## flipSaleState  
@@ -119,23 +160,17 @@ The id of the token. (must be zero)
 Toggles whether to allow minting.
 
 ```
-flipSaleState();
+const myNFT = await crescendo.getContract(sdk, address);
+await crescendo.flipSaleState();
 ```
 
-## withdrawFund  
+## withdraw  
 
-Allows the owner to withdraw the contract balance.
-
-```
-withdrawFund();
-```
-
-## withdrawDividend  
-
-Allows the account authorized for payouts to withdraw dividends at the specified take rate.
+Allows the contract owner to withdraw dividends at the specified take rate.
 
 ```
-withdrawDividend();
+const myNFT = await crescendo.getContract(sdk, address);
+await crescendo.withdraw();
 ```
 
 ## liquidity  
@@ -143,7 +178,8 @@ withdrawDividend();
 Returns the peak liquidity held by the contract.
 
 ```
-liquidity();
+const myNFT = await crescendo.getContract(sdk, address);
+const liquidity = await crescendo.liquidity();
 ```
 
 ## reserveAmt  
@@ -151,7 +187,8 @@ liquidity();
 Returns the peak reserve funds held by the contract.
 
 ```
-reserveAmt();
+const myNFT = await crescendo.getContract(sdk, address);
+const reserve = await crescendo.reserveAmt();
 ```
 
 ## updateUri  
@@ -159,8 +196,9 @@ reserveAmt();
 Allows the owner to update the URI serving metadata for the NFT collection.
 
 ```
-updateUri('https://nft.example/metadata/{id}.json');
+const myNFT = await crescendo.getContract(sdk, address);
+await crescendo.updateUri('https://nft.example/metadata/{id}.json');
 ```
 
-**uri** (uint256)  
+**uri** (*uint256*)  
 The URI serving metadata for the NFT collection.
