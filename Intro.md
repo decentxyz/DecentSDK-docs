@@ -8,7 +8,7 @@ The DecentSDK is currently deployed to Ethereum, Arbitrum, Optimism, zkSync, Pol
 
 
 
-### Core Modules
+## Core Modules
 
 - **[DCNTSDK](DCNTSDK.md)**  
 This contract serves as a permanent, immutable, and permissionless foundation upon which to build your application. Its primary function is to allow artist-owned and gas-efficient deployments of the core contracts within the DecentSDK.
