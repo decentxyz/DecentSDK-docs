@@ -26,19 +26,19 @@ This contract serves as a permanent, immutable, and permissionless foundation up
 
 ## Smart Contract Methods
 
-[**deployDCNT721A**](DCNT721A.md)  
+[**deployDCNT721A**](Edition.md)  
 Deploy a minimal proxy clone of the DCNT721A implementation contract.
 
-[**deployDCNT4907A**](DCNT4907A.md)  
+[**deployDCNT4907A**](Rentable.md)  
 Deploy a minimal proxy clone of the DCNT4907A implementation contract.
 
-[**deployDCNTCrescendo**](DCNTCrescendo.md)  
+[**deployDCNTCrescendo**](Crescendo.md)  
 Deploy a minimal proxy clone of the DCNTCrescendo implementation contract.
 
-[**deployDCNTVault**](DCNTVault.md)  
+[**deployDCNTVault**](Vault.md)  
 Deploy a minimal proxy clone of the DCNTVault implementation contract.
 
-[**deployDCNTStaking**](DCNTStaking.md)  
+[**deployDCNTStaking**](Staking.md)  
 Deploy a minimal proxy clone of the DCNTStaking implementation contract.
 
 
