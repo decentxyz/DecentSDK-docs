@@ -1,8 +1,8 @@
 # Welcome to the DecentSDK
 
-#### A developer toolkit for building artist owned ecosystems powered by NFTs
+#### A developer toolkit for building multi-contrct applications via simple JavaScript functions.
 
-Endeavoring to build towards a future where NFTs are not just digital collectibles, but a foundation upon which to build artist-owned applications, the DecentSDK enables you to rapidly deploy and interact with myriad smart contracts to create your own Web3 ecosystem powered by NFTs.
+Endeavoring to build towards a future where NFTs are not just digital collectibles, but a foundation upon which to build artist-owned applications. The Decent Protocol enables you to rapidly deploy and interact with myriad smart contracts to create your own Web3 ecosystem powered by NFTs.
 
 ### Core Modules
 
