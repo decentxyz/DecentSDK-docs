@@ -1,6 +1,6 @@
 # Vault
 
-A time-locked vault to distribute [ERC20](https://eips.ethereum.org/EIPS/eip-20) tokens to owners of an [ERC721](https://eips.ethereum.org/EIPS/eip-721) collection at expiry based on their percentage of ownership in the collection.
+A time-locked [vault](https://decentxyz.medium.com/introducing-dcnt-vault-wrappers-8f9253240f58) to distribute [ERC20](https://eips.ethereum.org/EIPS/eip-20) tokens to owners of an [ERC721](https://eips.ethereum.org/EIPS/eip-721) or [ERC4907](https://eips.ethereum.org/EIPS/eip-4907) collection at expiry based on their percentage of ownership in the collection.
 
 [**Getting Started**](#getting-started)  
 [**Module Methods**](#module-methods)  
