@@ -4,14 +4,26 @@
 
 This contract serves as a permanent, immutable, and permissionless foundation upon which to build your application. It's primary function is to allow artist-owned and gas-efficient deployments of the core contracts within the DecentSDK.
 
+0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6
+
+### Mainnet Deployments
+
+| Network | Verified Contract Address |
+| --- | --- |
+| Ethereum | [0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6](https://etherscan.io/address/0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6#code) |
+| Polygon | [0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6](https://polygonscan.com/address/0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6#code) |
+| Optimism | [0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6](https://optimistic.etherscan.io/address/0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6#code) |
+| Arbitrum | [0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6](https://arbiscan.io/address/0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6/contracts#code) |
+
+
 ### Testnet Deployments
 
 | Network | Verified Contract Address |
 | --- | --- |
-| Goerli | [0x3E09Ee0D6CF0B449C750E85800A4dD07094201c2](https://goerli.etherscan.io/address/0x3E09Ee0D6CF0B449C750E85800A4dD07094201c2#code) |
-| Polygon Mumbai | [0x6903001aB3eC0dC05F11282Fa66f2412b8b5c04e](https://mumbai.polygonscan.com/address/0x6903001aB3eC0dC05F11282Fa66f2412b8b5c04e#code) |
-| Optimism Goerli | [0xAeD5B8787e553b263047B545cf3ebbAA3667daF5](https://goerli-optimism.etherscan.io/address/0xAeD5B8787e553b263047B545cf3ebbAA3667daF5#code) |
-| Arbitrum Goerli | [0xA0A155bf17a68556BF908a0E3AbBC3281c1d01C5](https://goerli-rollup-explorer.arbitrum.io/address/0xA0A155bf17a68556BF908a0E3AbBC3281c1d01C5/contracts#address-tabs) |
+| Goerli | [0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6](https://goerli.etherscan.io/address/0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6#code) |
+| Polygon Mumbai | [0xa7f09A12E056fF12d2528dEd8b4658649FFD509B](https://mumbai.polygonscan.com/address/0xa7f09A12E056fF12d2528dEd8b4658649FFD509B#code) |
+| Optimism Goerli | [0x49799190aD4ef8299e0D078Eef07Bdb4309F7186](https://goerli-optimism.etherscan.io/address/0x49799190aD4ef8299e0D078Eef07Bdb4309F7186#code) |
+| Arbitrum Goerli | [0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6](https://goerli-rollup-explorer.arbitrum.io/address/0x327793Fa255bdD63C20a4aAD11c3A944A1EA62d6/contracts#address-tabs) |
 
 
 ## Smart Contract Methods
