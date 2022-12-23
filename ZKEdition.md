@@ -2,9 +2,9 @@
 
 An extension of Decent's gas-optimized [ERC721A](https://www.azuki.com/erc721a) which allows minting multiple NFTs for nearly the cost of one.  ZKEditions enable people to collect NFTs while preserving their privacy.  A primary reason that this is important is collectors are able to showcase their NFTs without revealing their wallet address or every other transaction they have executed.  Oversharing transaction histories can becomne severe security issue but is remedied via ZKEditions where a wallet must submit a valid zk proof to call the contract's mint function.  Implementations of ZKEdtitions that we find exciting include:
 
-Private NFT auctions: the identities of participants and the amounts they have bid can be concealed.  Think how useful this would have been to [ConstitutionDAO](https://www.artnews.com/art-news/news/why-ken-griffin-bought-us-constitution-1234636325/)!
+**Private NFT auctions**: the identities of participants and the amounts they have bid can be concealed.  Think how useful this would have been to [ConstitutionDAO](https://www.artnews.com/art-news/news/why-ken-griffin-bought-us-constitution-1234636325/)!
 
-Brand sponsored NFTs: corporations might wish to use NFTs as loyalty programs, carrots to attract new customers, or means of tracking impressions. These are interesting use cases; however, these brands should not be able to querey wallet addresses to build detailed user profiles based on all of your financial transactions!  ZKEditions accomplish the stated goal without the dubious externalities.
+**Brand sponsored NFTs**: corporations might wish to use NFTs as loyalty programs, carrots to attract new customers, or means of tracking impressions. These are interesting use cases; however, these brands should not be able to querey wallet addresses to build detailed user profiles based on all of your financial transactions!  ZKEditions accomplish the stated goal without the dubious externalities.
 
 [**Getting Started**](#getting-started)  
 [**Module Methods**](#module-methods)  
