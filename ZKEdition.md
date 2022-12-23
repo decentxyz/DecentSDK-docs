@@ -1,4 +1,4 @@
-# Edition
+# ZKEdition
 
 An extension of Decent's gas-optimized [ERC721A](https://www.azuki.com/erc721a) which allows minting multiple NFTs for nearly the cost of one.  ZKEditions enable people to collect NFTs while preserving their privacy.  A primary reason that this is important is collectors are able to showcase their NFTs without revealing their wallet address or every other transaction they have executed.  Oversharing transaction histories can becomne severe security issue but is remedied via ZKEditions where a wallet must submit a valid zk proof to call the contract's mint function.  Implementations of ZKEdtitions that we find exciting include:
 
