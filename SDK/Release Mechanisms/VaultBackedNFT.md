@@ -1,5 +1,7 @@
-# VaultBackedNFT
-
+---
+title: "VaultBackedNFT"
+excerpt: "Release NFTs with a vault that enables collectors to pool & share rewards."
+---
 This module simplifies the process of launching a Vault-Backed NFT into a single transaction, allowing you to deploy either an [Edition](Edition.md) or [Rentable](Rentable.md) which will be automatically backed by a shared [Vault](Vault.md).
 
 [**Getting Started**](#getting-started)  

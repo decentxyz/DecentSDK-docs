@@ -1,5 +1,7 @@
-# Crescendo
-
+---
+title: "Crescendo"
+excerpt: "Dynamically priced NFTs."
+---
 NFT drop utilizing a gas-optimzed version of [ERC1155](https://github.com/transmissions11/solmate) with bonding curves to enable dynamic pricing for fan powered price discovery and guarantee liquidity to collectors.
 
 [**Getting Started**](#getting-started)  

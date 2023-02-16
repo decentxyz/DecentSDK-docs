@@ -1,7 +1,7 @@
-# Welcome to the DecentSDK
-
-#### A developer toolkit for building NFT-based applications via simple JavaScript functions.
-
+---
+title: "Welcome to the DecentSDK"
+excerpt: "A developer toolkit for building NFT-based applications via simple JavaScript functions."
+---
 Endeavoring to build towards a future where NFTs are not just digital collectibles, but a foundation upon which to build artist-owned applications. The DecentSDK enables you to rapidly deploy and interact with myriad smart contracts to create your own Web3 ecosystem powered by NFTs.  We prioritized ease-of-use and composability so that you can do more with less, leading to accelerating and compounding innovation.
 
 The DecentSDK is currently deployed to Ethereum, Arbitrum, Optimism, zkSync, Polygon and each chain's primary testnet.  We hope that you enjoy using the SDK and encourage developers to contribute new modules via pull requests and post updates and issues in the repository's discussion [forum](https://github.com/decentxyz/DecentSDK/discussions) and [Discord](https://discord.gg/Z4BVZ2dK9z).

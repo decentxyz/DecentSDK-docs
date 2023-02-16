@@ -1,5 +1,7 @@
-# Rentable
-
+---
+title: "Rentable"
+excerpt: "Rent to others or launch subscriptions."
+---
 An extension to [Edition](Edition.md) implementing [ERC4907A](https://chiru-labs.github.io/ERC721A/#/erc4907a) / [EIP4907](https://eips.ethereum.org/EIPS/eip-4907) allowing token owner's to grant time restricted user rights to another account.
 
 [**Getting Started**](#getting-started)  

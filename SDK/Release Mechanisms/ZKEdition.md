@@ -1,6 +1,12 @@
-# Edition
+---
+title: "ZKEditions"
+excerpt: "Decent's Editions contract with added privacy."
+---
+An extension of Decent's gas-optimized [ERC721A](https://www.azuki.com/erc721a) which allows minting multiple NFTs for nearly the cost of one.  ZKEditions enable people to collect NFTs while preserving their privacy.  A primary reason that this is important is collectors are able to showcase their NFTs without revealing their wallet address or every other transaction they have executed.  Oversharing transaction histories can becomne severe security issue but is remedied via ZKEditions where a wallet must submit a valid zk proof to call the contract's mint function.  Implementations of ZKEdtitions that we find exciting include:
 
-NFT drop utilzing the gas-optimized [ERC721A](https://www.azuki.com/erc721a) which allows minting multiple NFTs for nearly the cost of one.
+**Private NFT auctions**: the identities of participants and the amounts they have bid can be concealed.  Think how useful this would have been to [ConstitutionDAO](https://www.artnews.com/art-news/news/why-ken-griffin-bought-us-constitution-1234636325/)!
+
+**Brand sponsored NFTs**: corporations might wish to use NFTs as loyalty programs, carrots to attract new customers, or means of tracking impressions. These are interesting use cases; however, these brands should not be able to querey wallet addresses to build detailed user profiles based on all of your financial transactions!  ZKEditions accomplish the stated goal without the dubious externalities.
 
 [**Getting Started**](#getting-started)  
 [**Module Methods**](#module-methods)  
@@ -8,7 +14,7 @@ NFT drop utilzing the gas-optimized [ERC721A](https://www.azuki.com/erc721a) whi
 
 ## Getting Started
 
-To begin we'll import the DecentSDK, chain configurations, and the Edition module.
+To begin we'll import the DecentSDK, chain configurations, and the ZKEdition module.
 
 Then we'll setup our signer (via wagmi/ethers) and create a new instance of the DecentSDK.
 
@@ -48,6 +54,7 @@ const myNFT = await edition.deploy(
   presaleEnd,
   saleStart,
   saleEnd,
+  zkVerifier,
   royaltyBPS,
   metadataURI,
   metadataRendererInit,
@@ -69,7 +76,7 @@ The name of the NFT collection.
 The symbol of the NFT collection.
 
 **hasAdjustableCap** (*boolean*) - *optional*  
-Include the ability to change maxTokens at a date after deployment.
+Include the ability to change `maxTokens` at a date after deployment.
 
 **parentIP** (*string*) - *optional*  
 Implementation of [EIP 5553](https://eips.ethereum.org/EIPS/eip-5553) to assign token metadata to the address of another NFT with registered IP.
@@ -97,6 +104,9 @@ Unix time general sale starts.  General sale applies to contracts deployed with 
 
 **saleEnd** (*number*) - *optional but recommended*
 Unix time general sale ends.
+
+**zkVerifier** (*string*)
+zkProof enabling wallet to call the contract's mint function.
 
 **royaltyBPS** (*number*)  
 The maximum number of tokens allowed per mint.

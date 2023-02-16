@@ -1,7 +1,7 @@
-# DCNTSDK
-
-#### A proxy factory enabling low-cost deployments of the core contracts available within the DecentSDK
-
+---
+title: "Overview"
+excerpt: "A proxy factory enabling low-cost deployments of the core contracts available within the DecentSDK."
+---
 This contract serves as a permanent, immutable, and permissionless foundation upon which to build your application. It's primary function is to allow artist-owned and gas-efficient deployments of the core contracts within the DecentSDK.
 
 ### Mainnet Deployments

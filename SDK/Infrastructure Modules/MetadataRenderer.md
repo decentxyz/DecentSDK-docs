@@ -1,4 +1,7 @@
-# MetadataRenderer
+---
+title: "Metadata Renderer"
+excerpt: ""
+---
 
 A shared on-chain metadata renderer adhering to the [music metadata standard](https://gist.github.com/bretth18/df8358c840fa94946ec212f753e290dd) which stores and renders metadata as base64 encoded URLs.
 

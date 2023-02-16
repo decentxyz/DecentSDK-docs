@@ -1,5 +1,7 @@
-# Registry
-
+---
+title: "Registry"
+excerpt: ""
+---
 The Registry serves as a public on-chain record of all contracts deployed via the DecentSDK and as a point of entry for the Decent Cross-Chain Indexer, which aggregates data across all of the EVM-compatible chains to which the DecentSDK has been deployed. The data is available to be consumed by other indexers, or utilized on-chain by other smart contracts.
 
 [**Getting Started**](#getting-started)  

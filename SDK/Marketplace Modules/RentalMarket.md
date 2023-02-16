@@ -1,4 +1,7 @@
-# RentalMarket
+---
+title: "Rental Market"
+excerpt: ""
+---
 
 A rental marketplace allowing instant daily rentals for [Rentable](Rentable.md) or any other NFT which implements the [EIP4907](https://eips.ethereum.org/EIPS/eip-4907) standard.
 
