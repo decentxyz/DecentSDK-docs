@@ -1,10 +1,8 @@
-# Staking
-
 A staking vault allowing owners of an [ERC721](https://eips.ethereum.org/EIPS/eip-721) or [ERC4907](https://eips.ethereum.org/EIPS/eip-4907) collection to stake their NFTs and earn [ERC20](https://eips.ethereum.org/EIPS/eip-20) tokens distributed based on the length of the lock up.
 
-[**Getting Started**](#getting-started)  
-[**Module Methods**](#module-methods)  
-[**Smart Contract Methods**](#smart-contract-methods)  
+[**Getting Started**](#getting-started)
+[**Module Methods**](#module-methods)
+[**Smart Contract Methods**](#smart-contract-methods)
 
 ## Getting Started
 
@@ -12,7 +10,7 @@ To begin we'll import the DecentSDK, chain configurations, and the Staking modul
 
 Then we'll setup our signer (via wagmi/ethers) and create a new instance of the DecentSDK.
 
-```
+```typescript
 // Import SDK, chain configurations, and the Staking module
 import { DecentSDK, chain, staking } from "@decent.xyz/sdk";
 
@@ -23,17 +21,17 @@ const sdk = new DecentSDK(chain.goerli, signer);
 
 ## Module Methods
 
-[**deploy**](#deploy)  
+[**deploy**](#deploy)
 Deploy a minimal proxy clone of the Staking implementation contract.
 
-[**getContract**](#getcontract)  
+[**getContract**](#getcontract)
 Get an ethers contract instance of a previously deployed Staking contract.
 
 ## deploy
 
 Deploy a minimal proxy clone of the Staking implementation contract.
 
-```
+```typescript
 const myStaking = await staking.deploy(
   sdk,
   nft,
@@ -46,88 +44,88 @@ const myStaking = await staking.deploy(
 
 console.log("Staking deployed to: ", myStaking.address);
 ```
-**sdk** (*SDK*)  
+**sdk** (_SDK_)
 An instance of the DecentSDK, configured with a chain and signer.
 
-**nft** (*string*)  
+**nft** (_string_)
 The address of the ERC721 that will be locked for staking rewards.
 
-**token** (*string*)  
+**token** (_string_)
 The address of the ERC20 token that will be earned by staking ERC721 tokens.
 
-**vaultDuration** (*number*)  
+**vaultDuration** (_number_)
 The duration in days over which staking rewards may be earned.
 
-**totalSupply** (*number*)  
+**totalSupply** (_number_)
 The total supply of the ERC721 collection that may earn staking rewards.
 
-**onTxPending** (*Function*) - *optional*  
+**onTxPending** (_Function_) - _optional_
 A callback function executed upon submission of the deploy transaction.
 
-**onTxReceipt** (*Function*) - *optional*  
+**onTxReceipt** (_Function_) - _optional_
 A callback function executed upon receipt of the deploy transaction.
 
 ## getContract
 
 Get an ethers contract instance of a previously deployed Staking contract.
 
-```
+```typescript
 const myStaking = await staking.getContract(sdk, address);
 ```
 
-**sdk** (*SDK*)  
+**sdk** (_SDK_)
 An instance of the DecentSDK, configured with a chain and signer.
 
-**address** (*string*)  
+**address** (_string_)
 The contract address of a previously deployed Rentable contract.
 
 ## Smart Contract Methods
 
-[**stake**](#stake)  
+[**stake**](#stake)
 Allows owners of the ERC721 collection to lock up their tokens for staking rewards.
 
-[**claim**](#claim)  
+[**claim**](#claim)
 Allows owners of the ERC721 collection to claim and withdraw earned staking rewards.
 
-[**claimForAddress**](#claimforaddress)  
+[**claimForAddress**](#claimforaddress)
 Distributes staking rewards on behalf of a specified account address.
 
-[**unstake**](#unstake)  
+[**unstake**](#unstake)
 Allows owners to claim earned staking rewards and unstake their tokens.
 
-[**earningInfo**](#earninginfo)  
+[**earningInfo**](#earninginfo)
 Returns the current staking rewards for the specified account address and tokens.
 
-[**balanceOf**](#balanceof)  
+[**balanceOf**](#balanceof)
 Returns the number of tokens staked by the specified account address.
 
-[**tokensOfOwner**](#tokensofowner)  
+[**tokensOfOwner**](#tokensofowner)
 Returns the tokens currently staked by the specified account address.
 
 ## stake
 
 Allows owners of the ERC721 collection to lock up their tokens for staking rewards.
 
-```
+```typescript
 const myStaking = await staking.getContract(sdk, address);
 const tokenIds = [0,1,2];
 await myStaking.stake(tokenIds);
 ```
 
-**tokenIds** (*uint256[]*)  
+**tokenIds** (_uint256[]_)
 An array of tokens to lock in the staking vault.
 
 ## claim
 
 Allows owners of the ERC721 collection to claim and withdraw earned staking rewards.
 
-```
+```typescript
 const myStaking = await staking.getContract(sdk, address);
 const tokenIds = [0,1,2];
 await myStaking.claim(tokenIds);
 ```
 
-**tokenIds** (*uint256[]*)  
+**tokenIds** (_uint256[]_)
 An array of tokens to claim staked earning rewards against.
 
 
@@ -142,10 +140,10 @@ const tokenIds = [0,1,2];
 await myStaking.claimForAddress(account, tokenIds);
 ```
 
-**account** (*address*)  
+**account** (_address_)
 The address of the account to claim on behalf of.
 
-**tokenIds** (*uint256[]*)  
+**tokenIds** (_uint256[]_)
 An array of tokens to claim staked earning rewards against.
 
 
@@ -153,13 +151,13 @@ An array of tokens to claim staked earning rewards against.
 
 Allows owners to claim earned staking rewards and unstake their tokens.
 
-```
+```typescript
 const myStaking = await staking.getContract(sdk, address);
 const tokenIds = [0,1,2];
 await myStaking.unstake(tokenIds);
 ```
 
-**tokenIds** (*uint256[]*)  
+**tokenIds** (_uint256[]_)
 An array of tokens to unstake and retreive from the staking vault.
 
 
@@ -167,17 +165,17 @@ An array of tokens to unstake and retreive from the staking vault.
 
 Returns the current staking rewards for the specified account address and tokens.
 
-```
+```typescript
 const myStaking = await staking.getContract(sdk, address);
 const account = '0x1234567890123456789012345678901234567890';
 const tokenIds = [0,1,2];
 await myStaking.earningInfo(account, tokenIds);
 ```
 
-**account** (*address*)  
+**account** (_address_)
 The address of the account to check for earned staking rewards.
 
-**tokenIds** (*uint256[]*)  
+**tokenIds** (_uint256[]_)
 An array of tokens to check for earned staking rewards.
 
 
@@ -185,24 +183,24 @@ An array of tokens to check for earned staking rewards.
 
 Returns the number of tokens staked by the specified account address.
 
-```
+```typescript
 const myStaking = await staking.getContract(sdk, address);
 const account = '0x1234567890123456789012345678901234567890';
 await myStaking.balanceOf(account);
 ```
 
-**account** (*address*)  
+**account** (_address_)
 The address of the account to check for total number of staked tokens.
 
 ## tokensOfOwner
 
 Returns the tokens currently staked by the specified account address.
 
-```
+```typescript
 const myStaking = await staking.getContract(sdk, address);
 const account = '0x1234567890123456789012345678901234567890';
 await myStaking.tokensOfOwner(account);
 ```
 
-**account** (*address*)  
+**account** (_address_)
 The address of the account to check for total number of staked tokens.

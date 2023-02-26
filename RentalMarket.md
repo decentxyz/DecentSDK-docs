@@ -1,14 +1,12 @@
-# RentalMarket
-
 A rental marketplace allowing instant daily rentals for [Rentable](Rentable.md) or any other NFT which implements the [EIP4907](https://eips.ethereum.org/EIPS/eip-4907) standard.
 
 Token owners can list their NFT tokens for rent, specify the desired fees and terms, and the marketplace takes care of designating users as well as collecting and distributing rental fees to token owners.
 
 In addition, RentalMarket supports [EIP2981](https://eips.ethereum.org/EIPS/eip-2981) and distributes a royalty fee on all rentals back to the creator.
 
-[**Getting Started**](#getting-started)  
-[**Module Methods**](#module-methods)  
-[**Smart Contract Methods**](#smart-contract-methods)  
+[**Getting Started**](#getting-started)
+[**Module Methods**](#module-methods)
+[**Smart Contract Methods**](#smart-contract-methods)
 
 ## Getting Started
 
@@ -16,7 +14,7 @@ To begin we'll import the DecentSDK, chain configurations, and the RentalMarket 
 
 Then we'll setup our signer (via wagmi/ethers) and create a new instance of the DecentSDK.
 
-```
+```typescript
 // Import SDK, chain configurations, and the RentalMarket module
 import { DecentSDK, chain, rentalMarket } from "@decent.xyz/sdk";
 
@@ -27,32 +25,32 @@ const sdk = new DecentSDK(chain.goerli, signer);
 
 ## Module Methods
 
-[**getContract**](#getcontract)  
+[**getContract**](#getcontract)
 Get an ethers contract instance of the RentalMarket contract.
 
 ## getContract
 
 Get an ethers contract instance of the RentalMarket contract.
 
-```
+```typescript
 const market = await rentalMarket.getContract(sdk);
 ```
 
-**sdk** (*SDK*)  
+**sdk** (_SDK_)
 An instance of the DecentSDK, configured with a chain and signer.
 
 ## Smart Contract Methods
 
-[**setRentable**](#setrentable)  
+[**setRentable**](#setrentable)
 Set the listing status, fees, and terms for a specified token.
 
-[**getRentable**](#getrentable)  
+[**getRentable**](#getrentable)
 Get the listing status, fees, and terms for a specified token.
 
-[**toggleListed**](#togglelisted)  
+[**toggleListed**](#togglelisted)
 Toggle the listing status for a specified token.
 
-[**rent**](#rent)  
+[**rent**](#rent)
 Rent a listed token for a specified number of days.
 
 
@@ -60,7 +58,7 @@ Rent a listed token for a specified number of days.
 
 Set the listing status, fees, and terms for a specified token.
 
-```
+```typescript
 const market = await rentalMarket.getContract(sdk);
 
 const nft = '0x1234567890123456789012345678901234567890';
@@ -83,46 +81,46 @@ await market.setRentable(
 );
 ```
 
-**_nft** (*address*)  
+**\_nft** (_address_)
 The address of an NFT which implements the [EIP4907](https://eips.ethereum.org/EIPS/eip-4907) standard.
 
-**_tokenId** (*uint256*)  
+**\_tokenId** (_uint256_)
 The id of the token.
 
-**_isListed** (*bool*)  
+**\_isListed** (_bool_)
 A flag indicating whether the token is currently listed for rentals.
 
-**_pricePerDay** (*uint256*)  
+**\_pricePerDay** (_uint256_)
 The price (in Wei) per day to rent the token.
 
-**_minDays** (*uint16*)  
+**\_minDays** (_uint16_)
 The minimum acceptable number of days which a renter may specify for rental duration.
 
-**_maxDays** (*uint16*)  
+**\_maxDays** (_uint16_)
 The maxium acceptable number of days which a renter may specify for rental duration.
 
 ## getRentable
 
 Get the listing status, fees, and terms for a specified token.
 
-```
+```typescript
 const market = await rentalMarket.getContract(sdk);
 const nft = '0x1234567890123456789012345678901234567890';
 const tokenId = 0;
 const listing = await market.getRentable(nft, tokenId);
 ```
 
-**_nft** (*address*)  
+**\_nft** (_address_)
 The address of the NFT.
 
-**_tokenId** (*uint256*)  
+**\_tokenId** (_uint256_)
 The id of the token.
 
 ## toggleListed
 
 Toggle the listing status for a specified token.
 
-```
+```typescript
 const market = await rentalMarket.getContract(sdk);
 await market.toggleListed(nft, tokenId);
 ```
@@ -131,7 +129,7 @@ await market.toggleListed(nft, tokenId);
 
 Rent a listed token for a specified number of days.
 
-```
+```typescript
 const market = await rentalMarket.getContract(sdk);
 const nft = '0x1234567890123456789012345678901234567890';
 const tokenId = 0;
@@ -147,11 +145,11 @@ await market.rent(
 );
 ```
 
-**_nft** (*address*)  
+**\_nft** (_address_)
 The address of the NFT.
 
-**_tokenId** (*uint256*)  
+**\_tokenId** (_uint256_)
 The id of the token.
 
-**_days** (*uint16*)  
+**\_days** (_uint16_)
 The number of days to rent the specified token.
